@@ -239,14 +239,15 @@ class ProductDetailView(DetailView):
     slug_url_kwarg = 'slug'
 
     def get_context_data(self, **kwargs):
+        # Ensure self.object is set by calling self.get_object()
+        self.object = self.get_object()
         context = super().get_context_data(**kwargs)
-        product = self.get_object()
+        product = self.object  # Use self.object instead of calling self.get_object() again
         context['other_products'] = Product.objects.exclude(slug=product.slug)
         context['form'] = ReviewForm()
-        
+
         # Fetch reviews related to the product
         context['reviews'] = product.reviews.filter(is_active=True).order_by('-created_at')
-        
         return context
 
     def post(self, request, *args, **kwargs):
@@ -274,9 +275,9 @@ class ProductDetailView(DetailView):
             return JsonResponse(response_data, status=400)
         
 
-    # def get(self, request, *args, **kwargs):
-    #     context = self.get_context_data(**kwargs)
-    #     return self.render_to_response(context)
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
          
       
 
