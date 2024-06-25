@@ -1,0 +1,93 @@
+{% load static %}
+<footer class="footer footer-2">
+   
+
+
+    <div class="footer-middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="widget widget-about">
+                        <img src="{% static 'web/assets/images/logo-4.png'%}" class="footer-logo" alt="Footer Logo" width="105" height="25">
+                        <p>Manufactured by: Chundakkadan's Vattuparambu,<br> Kondotty (PO) Malappuram <br>Dt., Kerala, India" </p>
+                        
+                        <div class="widget-about-info">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <span class="widget-about-title">Got Question? Call us 24/7</span>
+                                    <a href="tel:">+91 89 212 8333 51</a>
+                                </div><!-- End .col-sm-6 -->
+                                <div class="col-sm-6 col-md-8">
+                                    <span class="widget-about-title">Payment Method</span>
+                                    <figure class="footer-payments">
+                                        <img src="{% static 'web/assets/images/payments.png'%}" alt="Payment methods" width="272" height="20">
+                                    </figure><!-- End .footer-payments -->
+                                </div><!-- End .col-sm-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .widget-about-info -->
+                    </div><!-- End .widget about-widget -->
+                </div><!-- End .col-sm-12 col-lg-3 -->
+
+                <div class="col-sm-4 col-lg-2">
+                    <div class="widget">
+                        <h4 class="widget-title">Information</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="{% url "web:about" %}">About Heartima </a></li>
+                            <li><a href="{% url "web:faq" %}">How to shop on Heartima </a></li>
+                            <li><a href="{% url "web:faq" %}">FAQ</a></li>
+                            <li><a href="{% url "web:contact" %}">Contact us</a></li>
+                            
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-4 col-lg-3 -->
+
+                <div class="col-sm-4 col-lg-2">
+                    <div class="widget">
+                        <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="{% url "web:faq" %}">Payment Methods</a></li>
+                            <li><a href="{% url "web:faq" %}">Money-back guarantee!</a></li>
+                            <li><a href="{% url "web:faq" %}">Returns</a></li>
+                            <li><a href="{% url "web:faq" %}">Shipping</a></li>
+                            <li><a href="{% url "web:faq" %}">Terms and conditions</a></li>
+                            <li><a href="{% url "web:faq" %}">Privacy Policy</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-4 col-lg-3 -->
+
+                <div class="col-sm-4 col-lg-2">
+                    <div class="widget">
+                        <h4 class="widget-title">page</h4><!-- End .widget-title -->
+
+                        <ul class="widget-list">
+                            <li><a href="{% url "web:product_list" %}">products</a></li>
+                            <li><a href="{% url "web:cart" %}">View Cart</a></li>
+                            <li><a href="{% url "web:wishlist" %}">My Wishlist</a></li>
+                    
+                            <li><a href="{% url "web:contact" %}">Help</a></li>
+                        </ul><!-- End .widget-list -->
+                    </div><!-- End .widget -->
+                </div><!-- End .col-sm-64 col-lg-3 -->
+            </div><!-- End .row -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-middle -->
+
+    <div class="footer-bottom">
+        <div class="container">
+            <p class="footer-copyright">© 2024 <a href="http://www.brandmarker.in">brandmarker</a> - Developed by Brand Marker </p><!-- End .footer-copyright -->
+            <ul class="footer-menu">
+ 
+            </ul><!-- End .footer-menu -->
+
+            <div class="social-icons social-icons-color">
+                <span class="social-label">Social Media</span>
+                <a href="https://www.facebook.com/profile.php?id=61560420112322" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                <a href="https://www.instagram.com/heartima_pickles/" class="social-icon social-instagram" title="Instagram" target="_blank"><i class="icon-instagram"></i></a>
+                {% comment %} <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i class="icon-youtube"></i></a> {% endcomment %}
+            </div><!-- End .soial-icons -->
+        </div><!-- End .container -->
+    </div><!-- End .footer-bottom -->
+</footer><!-- End .footer -->

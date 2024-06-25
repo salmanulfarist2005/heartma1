@@ -1,0 +1,10 @@
+{% extends 'dashboard/base.html' %}
+{% block content %}
+<h1>Delete Banner</h1>
+<p>Are you sure you want to delete "{{ banner.title }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+<a href="{% url 'dashboard:banner_list' %}">Cancel</a>
+{% endblock %}

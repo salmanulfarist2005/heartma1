@@ -1,0 +1,258 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="page-wrapper">
+       
+
+        <main class="main">
+            <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url "web:index" %}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Fullwidth</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content container-fluid">
+                <figure class="entry-media dive">
+                    <img class="blog-detail" src="{{blog.detiail_image.url}}" alt="image desc">
+                </figure><!-- End .entry-media -->
+                <div class="container">
+                    <article class="entry single-entry entry-fullwidth">
+                        <div class="row">
+                            <div class="col-lg-11">
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <span class="entry-author">
+                                            by <a href="#">{{blog.name}}</a>
+                                        </span>
+                                        <span class="meta-separator">|</span>
+                                        <a href="#">{{blog.date}}</a>
+                                        <span class="meta-separator"></span>
+                                        
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title entry-title-big">
+                                       {{blog.title}}
+                                    </h2><!-- End .entry-title -->
+
+                                   
+
+                                    <div class="entry-content editor-content">
+                                        <p>{{blog.description|safe}}</p>
+
+                                        
+                                        <div class="pb-1"></div><!-- End .pb-1 -->
+
+
+                                        <div class="pb-1"></div><!-- End .pb-1 -->
+
+                                        
+
+
+                                      </div><!-- End .entry-content -->
+
+                                        </div><!-- End .entry-body -->
+                            </div><!-- End .col-lg-11 -->
+
+                            <div class="col-lg-1 order-lg-first mb-2 mb-lg-0">
+                                <div class="sticky-content">
+                                    <div class="social-icons social-icons-colored social-icons-vertical">
+                                        <span class="social-label">SHARE:</span>
+                                        <a href="https://www.facebook.com/profile.php?id=61560420112322" class="social-icon social-facebook" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                        <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                        <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                                        <a href="#" class="social-icon social-linkedin" title="Linkedin" target="_blank"><i class="icon-linkedin"></i></a>
+                                    </div><!-- End .soial-icons -->
+                                </div><!-- End .sticky-content -->
+                            </div><!-- End .col-lg-1 -->
+                        </div><!-- End .row -->
+                    </article><!-- End .entry -->
+
+                   
+
+                    <div class="related-posts">
+                        <h3 class="title">Related Posts</h3><!-- End .title -->
+                        
+                        <div class="owl-carousel owl-simple" data-toggle="owl" 
+                            data-owl-options='{
+                                "nav": false, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":1
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    }
+                                }
+                            }'>
+                            {% for other_blog in other_blogs %}
+                            <article class="entry entry-grid">
+                                <figure class="entry-media">
+                                    <a href="{{other_blog.get_absolute_url}}">
+                                    <img src="{{other_blog.image.url}}" alt="image desc">
+                                    </a>
+                                </figure><!-- End .entry-media -->
+
+                                <div class="entry-body">
+                                    <div class="entry-meta">
+                                        <a href="{{other_blog.get_absolute_url}}">{{other_blog.date}}"</a>
+                                        <span class="meta-separator">|</span>
+                                        <a href="{{other_blog.get_absolute_url}}">{{other_blog.name}}</a>
+                                    </div><!-- End .entry-meta -->
+
+                                    <h2 class="entry-title">
+                                        <a href="{{other_blog.get_absolute_url}}">{{other_blog.title}}</a>
+                                    </h2><!-- End .entry-title -->
+
+                                    <div class="entry-cats">
+                                        in <a href="#">Lifestyle</a>,
+                                        <a href="#">Shopping</a>
+                                    </div><!-- End .entry-cats -->
+                                </div><!-- End .entry-body -->
+                            </article><!-- End .entry -->
+                            {% endfor %}
+                        </div><!-- End .owl-carousel -->
+                    </div><!-- End .related-posts -->
+
+                    
+                   
+                </div><!-- End .container -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+
+    <!-- Sign in / Register Modal -->
+    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="icon-close"></i></span>
+                    </button>
+
+                    <div class="form-box">
+                        <div class="form-tab">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="tab-content-5">
+                                <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="singin-email">Username or email address *</label>
+                                            <input type="text" class="form-control" id="singin-email" name="singin-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="singin-password">Password *</label>
+                                            <input type="password" class="form-control" id="singin-password" name="singin-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>LOG IN</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="signin-remember">
+                                                <label class="custom-control-label" for="signin-remember">Remember Me</label>
+                                            </div><!-- End .custom-checkbox -->
+
+                                            <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                    <form action="#">
+                                        <div class="form-group">
+                                            <label for="register-email">Your email address *</label>
+                                            <input type="email" class="form-control" id="register-email" name="register-email" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-group">
+                                            <label for="register-password">Password *</label>
+                                            <input type="password" class="form-control" id="register-password" name="register-password" required>
+                                        </div><!-- End .form-group -->
+
+                                        <div class="form-footer">
+                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                <span>SIGN UP</span>
+                                                <i class="icon-long-arrow-right"></i>
+                                            </button>
+
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="register-policy" required>
+                                                <label class="custom-control-label" for="register-policy">I agree to the <a href="#">privacy policy</a> *</label>
+                                            </div><!-- End .custom-checkbox -->
+                                        </div><!-- End .form-footer -->
+                                    </form>
+                                    <div class="form-choice">
+                                        <p class="text-center">or sign in with</p>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login btn-g">
+                                                    <i class="icon-google"></i>
+                                                    Login With Google
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                            <div class="col-sm-6">
+                                                <a href="#" class="btn btn-login  btn-f">
+                                                    <i class="icon-facebook-f"></i>
+                                                    Login With Facebook
+                                                </a>
+                                            </div><!-- End .col-6 -->
+                                        </div><!-- End .row -->
+                                    </div><!-- End .form-choice -->
+                                </div><!-- .End .tab-pane -->
+                            </div><!-- End .tab-content -->
+                        </div><!-- End .form-tab -->
+                    </div><!-- End .form-box -->
+                </div><!-- End .modal-body -->
+            </div><!-- End .modal-content -->
+        </div><!-- End .modal-dialog -->
+    </div><!-- End .modal -->
+
+    <!-- Plugins JS File -->
+    {% endblock %}

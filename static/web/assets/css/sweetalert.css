@@ -1,0 +1,22 @@
+.swal2-custom-popup {
+ font-size: 1.1rem;
+ width: 50px;
+      }
+ .swal2-custom-title {
+    color: #2c3e50;
+   }
+.swal2-custom-confirm-button {
+  background-color: #3498db;
+  color: #fff;
+}
+.swal2-custom-confirm-button:hover {
+ background-color: #2980b9;
+}
+.swal2-custom-cancel-button {
+  background-color: #e74c3c;
+  color: #fff;
+    }
+.swal2-custom-cancel-button:hover {
+    background-color: #c0392b;
+     }
+

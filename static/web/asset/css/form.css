@@ -1,0 +1,242 @@
+input[type=text], input[type=password], input[type=url], input[type=email] , input[type=number], input[type=file], input[type=date] {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 16px 0;
+    display: block;
+    border: 1px solid #c8c3cf;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #F6F5F7;
+    font-size: 16px;
+    color: #4F4659;
+    outline: none !important;
+    transition: box-shadow 0.25s ease-in-out, background-image 0.25s !important;
+    line-height: 1.6; /* Adjust based on your font and design */
+    max-height: 3.2em !important; /* Approximately two lines of text */
+    overflow: hidden !important;
+
+    }
+
+p {
+    width: 70%; /* Two columns by default */
+    padding: 10px;
+    box-sizing: border-box;
+    color: black;
+    
+}
+
+
+
+.backc {
+    background-color: aliceblue;
+}
+
+
+
+.buttons {
+    float: right !important;
+    margin-top: 70px !important;
+}
+
+.buttonF {
+    background-color: rgb(5, 104, 233) !important;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+
+.form-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding: 50px 0;
+    background-color: antiquewhite;
+
+}
+
+.form {
+    width: 650px;
+    padding: 1px 0px 0px 25px;
+}
+
+.button {
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+
+}
+#id_category{
+    height: 5vh;
+    width: 50%;
+    border: #4F4659;
+}
+#id_description{
+    width: 50%;
+    border: 1px solid #c8c3cf;
+    color: #4F4659;
+    background-color: #F6F5F7;
+
+
+
+}
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-10 {
+    background-color: rgb(5, 104, 233) !important;
+    background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.btn-10:after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(.1);
+    transform: scale(.1);
+}
+
+.btn-10:hover {
+    color: #fff;
+    border: none;
+    background: transparent;
+}
+
+.btn-10:hover:after {
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgba(0,3,255,1) 100%);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.btn-11 {
+    background-color: rgb(5, 104, 233) !important;
+    background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.btn-11:after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(.1);
+    transform: scale(.1);
+}
+
+.btn-11:hover {
+    color: #fff;
+    border: none;
+    background: transparent;
+}
+
+.btn-11:hover:after {
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgba(0,3,255,1) 100%);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+/* Fix the button at the end of the screen */
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the button to the end (right side) of the container */
+    margin-top: 20px; /* Add space between the form and the button */
+}
+
+.button-wrapper {
+    width: 130px; /* Adjust width as needed */
+    margin-left: auto; /* Push the button to the right */
+    margin-right: 20px; /* Add space between the button and the form elements */
+}
+
+
+.custom-btnn {
+    width: 170px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+                7px 7px 20px 0px rgba(0,0,0,.1),
+                4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+
+.btn-11 {
+    background-color: rgb(5, 104, 233) !important;
+    background: linear-gradient(0deg, rgba(22,9,240,1) 0%, rgba(49,110,244,1) 100%);
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    
+}
+
+.btn-11:after {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    -webkit-transform: scale(.1);
+    transform: scale(.1);
+}
+
+.btn-11:hover {
+    color: #fff;
+    border: none;
+    background: transparent;
+}
+
+.btn-11:hover:after {
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg, rgba(2,126,251,1) 0%, rgba(0,3,255,1) 100%);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}

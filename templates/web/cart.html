@@ -1,0 +1,256 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+
+
+    <main class="main">
+        <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg'%}')">
+            <div class="container">
+                <h1 class="page-title">Shopping Cart<span>Shop</span></h1>
+            </div><!-- End .container -->
+        </div><!-- End .page-header -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url "web:index" %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                </ol>
+            </div><!-- End .container -->
+        </nav><!-- End .breadcrumb-nav -->
+
+        <div class="page-content">
+            <div class="cart">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <!-- cart.html -->
+                            <table class="table table-cart table-mobile">
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for item in cart_items %}
+                                    <tr>
+                                        <td class="product-col">
+                                            <div class="product">
+                                                <figure class="product-media">
+                                                    <a href="#">
+                                                        <img src="{{item.product.image.url}}" alt="Product image">
+                                                    </a>
+                                                </figure>
+
+                                                <h3 class="product-title">
+                                                    <a href="#">{{item.product.name}}</a>
+                                                </h3><!-- End .product-title -->
+                                            </div><!-- End .product -->
+                                        </td>
+                                        <td class="price-col">{{item.product.price}}</td>
+                                        <td class="quantity-col">
+                                            <div class="cart-product-quantity">
+                                                <button type="button"
+                                                class="btn qty-left-minus cart-minus-btn"
+                                                data-type="minus" data-field=""
+                                                data-product_id="{{ item.product.id }}"
+                                                data-cart-id="{{ item.id }}">-
+                                                </button>
+                                                <input type="text" name="quantity" id="quantity-{{ item.product.id }}" class="form-control qty-input input-number" value="{{ item.quantity }}" id="quantity-{{item.product.id}}"  disabled>
+                                                <button type="button"
+                                                class="btn qty-right-plus cart-add-btn"
+                                                data-type="plus" data-field=""
+                                                data-product_id="{{ item.product.id }}">
+                                                +
+                                                </button>
+                                            </div>
+                                            {% comment %} <div class="cart-product-quantity">
+                                                <input type="number" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                                            </div><!-- End .cart-product-quantity --> {% endcomment %}
+                                        </td>
+                                        <td class="total-col" id="total-{{item.product.id}}">{{item.total_price}}</td>
+                                        <td class="remove-col" data-product_id="{{ item.product.id }}"><a href="{% url "web:clear_cart_item" item.product.id %}"><i class="icon-close"></i></a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table><!-- End .table table-wishlist -->
+
+                    
+                
+                     </div><!-- End .col-lg-9 -->
+
+                        <aside class="col-lg-3">
+                            <div class="summary summary-cart">
+                                <h3 class="summary-title">Cart Total</h3><!-- End .summary-title -->
+
+                                <table class="table table-summary">
+                                    <tbody>
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td><span id="sub_total">₹ {{cart_total}}</span></td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td><span id="cart_total">₹ {{cart_total}}</span></td>
+                                            
+                                        </tr><!-- End .summary-total -->
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+
+                                <a href="{% url 'web:checkout' %}"
+                                    class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
+                            </div><!-- End .summary -->
+                            <a href="{% url 'web:product_list' %}"
+                                class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i
+                                    class="icon-refresh"></i></a>
+                        </aside><!-- End .col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .cart -->
+        </div><!-- End .page-content -->
+
+    </main><!-- End .main -->
+
+</div><!-- End .page-wrapper -->
+
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+
+<!-- Sign in / Register Modal -->
+<div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="icon-close"></i></span>
+                </button>
+
+                <div class="form-box">
+                    <div class="form-tab">
+                        <ul class="nav nav-pills nav-fill" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin" role="tab"
+                                    aria-controls="signin" aria-selected="true">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                                    aria-controls="register" aria-selected="false">Register</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="tab-content-5">
+                            <div class="tab-pane fade show active" id="signin" role="tabpanel"
+                                aria-labelledby="signin-tab">
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="singin-email">Username or email address *</label>
+                                        <input type="text" class="form-control" id="singin-email" name="singin-email"
+                                            required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-group">
+                                        <label for="singin-password">Password *</label>
+                                        <input type="password" class="form-control" id="singin-password"
+                                            name="singin-password" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-footer">
+                                        <button type="submit" class="btn btn-outline-primary-2">
+                                            <span>LOG IN</span>
+                                            <i class="icon-long-arrow-right"></i>
+                                        </button>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="signin-remember">
+                                            <label class="custom-control-label" for="signin-remember">Remember
+                                                Me</label>
+                                        </div><!-- End .custom-checkbox -->
+
+                                        <a href="#" class="forgot-link">Forgot Your Password?</a>
+                                    </div><!-- End .form-footer -->
+                                </form>
+                                <div class="form-choice">
+                                    <p class="text-center">or sign in with</p>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-g">
+                                                <i class="icon-google"></i>
+                                                Login With Google
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-f">
+                                                <i class="icon-facebook-f"></i>
+                                                Login With Facebook
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .form-choice -->
+                            </div><!-- .End .tab-pane -->
+                            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="register-email">Your email address *</label>
+                                        <input type="email" class="form-control" id="register-email"
+                                            name="register-email" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-group">
+                                        <label for="register-password">Password *</label>
+                                        <input type="password" class="form-control" id="register-password"
+                                            name="register-password" required>
+                                    </div><!-- End .form-group -->
+
+                                    <div class="form-footer">
+                                        <button type="submit" class="btn btn-outline-primary-2">
+                                            <span>SIGN UP</span>
+                                            <i class="icon-long-arrow-right"></i>
+                                        </button>
+
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="register-policy"
+                                                required>
+                                            <label class="custom-control-label" for="register-policy">I agree to the <a
+                                                    href="#">privacy policy</a> *</label>
+                                        </div><!-- End .custom-checkbox -->
+                                    </div><!-- End .form-footer -->
+                                </form>
+                                <div class="form-choice">
+                                    <p class="text-center">or sign in with</p>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login btn-g">
+                                                <i class="icon-google"></i>
+                                                Login With Google
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-login  btn-f">
+                                                <i class="icon-facebook-f"></i>
+                                                Login With Facebook
+                                            </a>
+                                        </div><!-- End .col-6 -->
+                                    </div><!-- End .row -->
+                                </div><!-- End .form-choice -->
+                            </div><!-- .End .tab-pane -->
+                        </div><!-- End .tab-content -->
+                    </div><!-- End .form-tab -->
+                </div><!-- End .form-box -->
+            </div><!-- End .modal-body -->
+        </div><!-- End .modal-content -->
+    </div><!-- End .modal-dialog -->
+</div><!-- End .modal -->
+
+{% endblock %}
+{% block javascript %}
+
+<script src="/static/web/assets/js/cart.js"></script>
+{% endblock %}

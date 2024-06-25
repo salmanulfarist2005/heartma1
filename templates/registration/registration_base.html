@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="flexkit" />
+
+  <link rel="shortcut icon" href="{% static 'web/images/favicon.ico' %}" type="image/x-icon">
+
+  <!------------------ Fonts ------------------>
+
+  <link rel="stylesheet" href="{% static 'web/css/css217b2.css' %}" />
+  <link rel="stylesheet" href="{% static 'web/css/css28433.css' %}" />
+  <!--------------- Stylesheets ---------------->
+  <link rel="stylesheet" href="{% static 'web/css/plugins/swiper.min.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'web/css/style.css' %}" type="text/css" />
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+  <![endif]-->
+
+  <!------------- Document Title -------------->
+  <title>Souq24 | Electronic market for Eccessories</title>
+</head>
+
+<body>
+
+  <main>
+    <div class="mb-4 pb-4"></div>
+    <section class="login-register container">
+     
+              {% block content %}
+
+              
+
+              {% endblock %}
+
+            </section>
+          </main>
+        
+              
+    <script src="{% static 'web/js/plugins/jquery.min.js' %}"></script>
+    <script src="{% static 'web/js/plugins/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'web/js/plugins/bootstrap-slider.min.js' %}"></script>
+    <!-- <script src="{% static 'web/js/plugins/jquery.waypoints.min.js' %}"></script> -->
+    <!-- <script src="{% static 'web/js/plugins/sticky.min.js' %}"></script> -->
+    <script src="{% static 'web/js/plugins/swiper.min.js' %}"></script>
+    <script src="{% static 'web/js/plugins/countdown.js' %}"></script>
+
+    <!-------------- Footer Scripts -------------->
+    <script src="{% static 'web/js/theme.js' %}"></script>
+
+</body>
+
+</html>

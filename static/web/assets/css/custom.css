@@ -1,0 +1,25 @@
+.image_c{
+    width: 100% !important;
+    height: 1vh !important;
+
+}
+.map_hr{
+    height: 50vh;
+    width: 100%;
+   
+}
+.map_bm{
+    height: 51vh;
+    width: 100%;
+    padding: 10px;
+    box-shadow: 10cap;
+   
+}
+.blog-detail{
+    height: 50vh !important;
+    border-radius: 10px !important;
+}
+.dive{
+    border-radius: 10px !important;
+ 
+}
